@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_19_062911) do
+ActiveRecord::Schema.define(version: 2019_01_19_082134) do
 
   create_table "boards", force: :cascade do |t|
     t.integer "game_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_062911) do
     t.boolean "active"
     t.string "winner"
     t.integer "num_of_players"
+    t.string "starter"
   end
 
   create_table "spaces", force: :cascade do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_062911) do
     t.integer "cards_guessed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "size"
     t.index ["game_id"], name: "index_teams_on_game_id"
   end
 
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_062911) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "team_id"
   end
 
   create_table "words", force: :cascade do |t|

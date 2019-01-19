@@ -15,6 +15,8 @@ class GamesController < ApplicationController
   def create
     @game = current_user.created_games.build(game_params)
     if @game.save
+      @game.generate_board
+      binding.pry
       redirect_to game_path(@game)
     else
       render 'new'

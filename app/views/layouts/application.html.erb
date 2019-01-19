@@ -5,20 +5,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'application.css' %>
     <%= javascript_include_tag 'application.js' %>
+
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2'></script>
   </head>
 
   <body>
-
-    <% if logged_in?%>
-      <%= link_to 'All Games', games_path %> |
-      <%= link_to current_user.username, user_path(current_user) %>
-      <%= link_to 'Log Out', logout_path, method: 'delete' %>
-    <% else %>
-      <%= link_to 'Sign Up', signup_path %> |
-      <%= link_to 'Log In', login_path %>
-    <% end %>
+    <header>
+      <% if logged_in?%>
+        <%= link_to 'All Games', games_path %> |
+        <%= link_to current_user.username, user_path(current_user) %>
+        <%= link_to 'Log Out', logout_path, method: 'delete' %>
+      <% else %>
+        <%= link_to 'Sign Up', signup_path %> |
+        <%= link_to 'Log In', login_path %>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>

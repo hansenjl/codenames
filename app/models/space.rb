@@ -1,5 +1,12 @@
 class Space < ApplicationRecord
   belongs_to :board
   belongs_to :word
-  belongs_to :game, through: :board
+
+  def self.red
+    where(assignment: "red")
+  end
+
+  def self.blue
+    where(assignment: "blue")
+  end
 end
