@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   validates :num_of_players, presence: true
   has_one :board
   has_many :spaces, through: :board
-  has_many :teams
+  has_many :teams, dependent: :destroy
   has_many :users, through: :teams
   belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
 
@@ -29,6 +29,28 @@ class Game < ApplicationRecord
     self.teams.map do |t|
       t.users.length
     end.reduce(:+)
+  end
+
+
+
+  def join_team(user)
+    t1 = self.teams[0]
+    t2 = self.teams[1]
+    t1_slots = t1.size - t1.users.length
+    t2_slots = t2.size - t2.users.length
+    if  t1_slots >= t2_slots
+      t1.users << user
+      t1.save
+    else
+      t2.users << user
+      t2.save
+    end
+    user
+  end
+
+  def leave_team(user)
+    user.team = nil
+    user.save #this will also change team.users array
   end
 end
 

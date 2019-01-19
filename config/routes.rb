@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: "sessions#welcome"
+   post '/games/:id/join' => 'games#join', as: 'join_game'
+   post '/games/:id/leave' => 'games#leave', as: 'leave_game'
 
   resources :users
   resources :games

@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-   before_action :set_game, only: [:show, :edit, :update, :destroy]
+   before_action :set_game, only: [:show, :edit, :update, :destroy, :join, :leave]
    before_action :redirect_if_not_owner, only: [:edit, :update, :destroy]
 
   def index
@@ -35,6 +35,16 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
+    redirect_to games_path
+  end
+
+  def join
+    @game.join_team(current_user)
+    render :show
+  end
+
+  def leave
+    @game.leave_team(current_user)
     redirect_to games_path
   end
 

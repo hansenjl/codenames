@@ -1,4 +1,6 @@
-<h1><%= @game.name %></h1>
+<h1><%= @game.name %> </h1>
+
+<h2> <%= join_leave_link %> </h2>
 
 <h3>Red Cards Left: <%=@game.teams.red.cards_left%> | Blue Cards Left: <%=@game.teams.blue.cards_left%></h3>
 <div class="container">
