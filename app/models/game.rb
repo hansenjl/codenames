@@ -24,5 +24,11 @@ class Game < ApplicationRecord
     self.save
     self
   end
+
+  def open_slots
+    self.teams.map do |t|
+      t.users.length
+    end.reduce(:+)
+  end
 end
 
