@@ -36,3 +36,18 @@
     </table>
   </div>
 </div>
+
+<div>
+  <h4>Red Team:</h4>
+  <ul class="red">
+    <% @game.teams.red.users.each do |u|%>
+      <li><%= u.username %></li>
+    <% end %>
+  </ul>
+  <h4>Blue Team:</h4>
+  <ul class="blue">
+    <% @game.teams.blue.users.each do |u|%>
+      <li><%= u.username %></li>
+    <% end %>
+  </ul>
+</div>
