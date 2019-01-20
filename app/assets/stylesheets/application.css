@@ -72,3 +72,9 @@
         .cell-strike {
             opacity: 0.2;
         }
+        .red {
+            color: red;
+        }
+        .blue {
+            color: blue;
+        }
