@@ -40,7 +40,7 @@ class GamesController < ApplicationController
 
   def join
     @game.join_team(current_user)
-    render :show
+    redirect_to game_path(@game)
   end
 
   def leave

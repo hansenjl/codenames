@@ -31,6 +31,14 @@ class Game < ApplicationRecord
     end.reduce(:+)
   end
 
+  def bystander_spaces
+    self.spaces.assignment("bystander")
+  end
+
+  def death_space
+    self.spaces.assignment("death").last
+  end
+
 
 
   def join_team(user)

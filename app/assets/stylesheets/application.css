@@ -78,3 +78,6 @@
         .blue {
             color: blue;
         }
+        .hidden{
+            visibility: hidden;
+        }

@@ -2,11 +2,7 @@ class Space < ApplicationRecord
   belongs_to :board
   belongs_to :word
 
-  def self.red
-    where(assignment: "red")
-  end
-
-  def self.blue
-    where(assignment: "blue")
+  def self.assignment(k)
+    where("assignment = ?", k)
   end
 end
