@@ -3,6 +3,7 @@ class Game < ApplicationRecord
   validates :num_of_players, presence: true
   has_one :board
   has_many :spaces, through: :board
+  has_many :words, through: :spaces
   has_many :teams, dependent: :destroy
   has_many :users, through: :teams
   belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
@@ -18,9 +19,9 @@ class Game < ApplicationRecord
     self.active = true
     self.starter = ["red","blue"].sample
     board = Board.generate(self)
-    self.creator.team = self.teams.build(color: "red", size: team1, cards_left: board.spaces.red.count, cards_guessed: 0)
+    self.creator.team = self.teams.build(color: "red", size: team1, cards_left: board.spaces.assignment("red").count, cards_guessed: 0)
     self.creator.save
-    self.teams.build(color: "blue", size: team2, cards_left: board.spaces.blue.count , cards_guessed: 0).save
+    self.teams.build(color: "blue", size: team2, cards_left: board.spaces.assignment("blue").count , cards_guessed: 0).save
     self.save
     self
   end
@@ -46,7 +47,7 @@ class Game < ApplicationRecord
     t2 = self.teams[1]
     t1_slots = t1.size - t1.users.length
     t2_slots = t2.size - t2.users.length
-    if  t1_slots >= t2_slots
+    if  t1_slots > t2_slots
       t1.users << user
       t1.save
     else

@@ -11,7 +11,11 @@ class Team < ApplicationRecord
   end
 
   def spaces
-    self.game.board.spaces.assignment(self.color)
+    self.game.spaces.assignment(self.color)
+  end
+
+  def words
+    self.spaces.collect {|s| s.word.text}
   end
 
   def opposite_color
@@ -23,14 +27,15 @@ class Team < ApplicationRecord
   end
 
   def other_team_spaces
-    self.game.board.spaces.assignment(self.opposite_color)
+    self.game.spaces.assignment(self.opposite_color)
   end
 
   def check_guess(word)
-    if card = self.spaces.detect{|s| s.word.text == word}
+
+    if !!(card = self.spaces.detect{|s| s.word.text == word})
       #correct guess
       {guess: "correct", color: self.color, card: card, turn: "continue"}
-    elsif card = self.other_team_spaces.detect{|s| s.word.text == word}
+    elsif !!(card = self.other_team_spaces.detect{|s| s.word.text == word})
       #it was the other team's word
       {guess: "wrong", color:self.opposite_color, card: card, turn: "over"}
     elsif card = self.game.bystander_spaces.detect{|s|  s.word.text == word}
@@ -41,5 +46,19 @@ class Team < ApplicationRecord
       {guess: "death", color: 'black', card: self.game.death_space, turn: "over"}
     end
   end
+
+  #blue word: ["hat",
+ # "drill",
+ # "night",
+ # "novel",
+ # "press",
+ # "horse",
+ # "grape",
+ # "ambulence",
+ # "rope"]
+
+ #red words: ["kid", "giant", "case", "skateboard", "plane", "mug", "bat", "tennis"]
+#bystander: ["window", "pager", "clock", "cricket", "hammer", "cop", "fish"]
+ #death word:"baby"
 
 end

@@ -18,11 +18,11 @@ class WordsController < ApplicationController
   private
 
    def set_team
-      @team = @game.teams.find_by_color(params[:team])
+      @team = @game.teams.find_by(color: params[:team])
    end
 
    def set_game
-      @game = Game.find_by(params[:game_id])
+      @game = Game.find_by(id: params[:game_id])
    end
 
  end

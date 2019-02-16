@@ -8,6 +8,7 @@ function current_team(){
 
 
 function guess_word(e){
+  space = e
   text = e.innerHTML
   gameId = document.getElementById("game-id").innerHTML
   //values =  {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')}
@@ -23,7 +24,15 @@ function guess_word(e){
     },
     success: function(data){
       data
-      debugger
+      space.style.backgroundColor = data.color
+
+      if (data.color === 'blue') {
+        let blueLeft =  parseInt($("span#blue-left").text(), 10)
+        $("span#blue-left").text(blueLeft - 1)
+      } else if (data.color === 'red'){
+        let redLeft = parseInt($("span#red-left").text(), 10)
+        $("span#red-left").text(redLeft - 1)
+      }
     },
   })
 }
@@ -58,13 +67,10 @@ function createComment(element){
   })
 }
 
-function Comment(id,text,username,city){
-  this.id = id
-  this.text = text
-  this.username = username
-  this.city = city
+function Game(data){
+  this.id = data.id
 }
 
-Comment.prototype.formatComment = function(){
-    return "<li id='comment-"+ this.id +"'><strong>" + this.username + ": </strong>" + this.text
-  }
+// Comment.prototype.formatComment = function(){
+//     return "<li id='comment-"+ this.id +"'><strong>" + this.username + ": </strong>" + this.text
+//   }

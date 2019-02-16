@@ -3,7 +3,7 @@
 
 <h2> <%= join_leave_link %> </h2>
 
-<h3><span class="red">Red Cards Left: <%=@game.teams.red.cards_left%></span> | <span class="blue">Blue Cards Left: <%=@game.teams.blue.cards_left%></span></h3>
+<h3><span class="red">Red Cards Left: <span id="red-left"><%=@game.teams.red.cards_left%></span></span> | <span class="blue">Blue Cards Left: <span id="blue-left"><%=@game.teams.blue.cards_left%></span></span></h3>
 <div class="container">
   <div id="game">
     <table class="cards">

@@ -11,6 +11,7 @@ class Board < ApplicationRecord
     board.set_spaces(configuration_array)
     board.save
     board
+
   end
 
   def set_spaces(configuration)
