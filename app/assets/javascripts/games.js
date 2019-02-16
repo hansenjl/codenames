@@ -32,6 +32,8 @@ function guess_word(e){
       } else if (data.color === 'red'){
         let redLeft = parseInt($("span#red-left").text(), 10)
         $("span#red-left").text(redLeft - 1)
+      } else if (data.color === 'black'){
+        alert("Oh no! You lose - Game over! ")
       }
     },
   })
