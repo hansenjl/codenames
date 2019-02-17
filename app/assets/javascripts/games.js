@@ -48,6 +48,9 @@ function guess_word(e){
 function attachListeners(){
 
   //only attach if games aren't done
+  // only attach if game has been started
+  //when the game is started how do we trigger all screens to refresh?
+  //a counter on each page that is sending background get requests to find out if the game is started % if so refresh the screen??
   $("td.cell-unrevealed").click(function(){
     guess_word(this)
   })
@@ -57,29 +60,3 @@ function attachListeners(){
 $(document).ready(attachListeners)
 
 
-// function createComment(element){
-
-
-//   posting.done(function(data){
-
-//     // create a new comment object
-//     var comment = new Comment(data["id"], data["text"], data["user"]["username"], data["city"]["name"])
-
-//     // add new comment
-//     var createdComment = comment.formatComment() + " <button class='delete-comment' data='" + comment.id + "' onclick='deleteComment(this)'>Delete</button></li>"
-//     $("#comments").append(createdComment)
-
-//     //reset comment form
-//     $("#submit").prop( "disabled", false )
-//     $("#comment_text").val("")
-
-//   })
-// }
-
-// function Game(data){
-//   this.id = data.id
-// }
-
-// Comment.prototype.formatComment = function(){
-//     return "<li id='comment-"+ this.id +"'><strong>" + this.username + ": </strong>" + this.text
-//   }

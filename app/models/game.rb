@@ -61,8 +61,18 @@ class Game < ApplicationRecord
   end
 
   def leave_team(user)
+    #this method doesn't really seem to belong in the game model
     user.team = nil
     user.save #this will also change team.users array
+  end
+
+  def start
+    #set the 'leaders' for each team
+    self.teams.each do |t|
+      t.leader = t.users.sample
+      t.save
+    end
+
   end
 end
 

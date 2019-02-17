@@ -9,7 +9,7 @@ module GamesHelper
   end
 
   def start_game_link
-    if !@game.teams[0].leader
+    if @game.teams[0].size > 1 && @game.teams[1].size > 1
         link_to('Start Game', start_game_path(@game), method: 'patch')
     end
   end

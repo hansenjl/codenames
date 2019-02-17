@@ -49,6 +49,7 @@ class GamesController < ApplicationController
   end
 
   def start
+    @game.start
     redirect_to game_path(@game)
   end
 

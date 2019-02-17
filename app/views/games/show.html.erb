@@ -1,7 +1,9 @@
 <h1><%= @game.name %> </h1>
 <p id="game-id" class="hidden"><%=@game.id%></p>
 
+<% if !@game.teams[0].leader %>
 <h2> <%= join_leave_link %> | <%= start_game_link %> </h2>
+<% end %>
 
 <% if %>
   <%= render "game" %>
