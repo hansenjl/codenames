@@ -1,0 +1,52 @@
+<h2>You are the code giver for the <%=current_user.team%></h2>
+
+<h3><span class="red">Red Cards Left: <span id="red-left"><%=@game.teams.red.cards_left%></span></span> | <span class="blue">Blue Cards Left: <span id="blue-left"><%=@game.teams.blue.cards_left%></span></span></h3>
+<div class="container">
+  <div id="game">
+    <table class="cards">
+      <tbody>
+        <tr>
+          <% @game.board.spaces[0..4].each do |space|%>
+            <td class="cell cell-revealed"><%= space.word.text  %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <% @game.board.spaces[5..9].each do |space|%>
+            <td class="cell cell-revealed"><%= space.word.text  %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <% @game.board.spaces[10..14].each do |space|%>
+            <td class="cell cell-revealed"><%= space.word.text  %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <% @game.board.spaces[15..19].each do |space|%>
+            <td class="cell cell-revealed"><%= space.word.text %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <% @game.board.spaces[20..24].each do |space|%>
+            <td class="cell cell-revealed"><%= space.word.text %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div>
+  <h4 class="red">Red Team:</h4>
+  <ul class="red">
+    <% @game.teams.red.users.each do |u|%>
+      <li><%= u.username %></li>
+    <% end %>
+  </ul>
+  <h4 class="blue">Blue Team:</h4>
+  <ul class="blue">
+    <% @game.teams.blue.users.each do |u|%>
+      <li><%= u.username %></li>
+    <% end %>
+  </ul>
+</div>
+

@@ -17,7 +17,7 @@
         <td><%=game.open_slots%>/<%= game.num_of_players %></td>
         <td><%= game.creator.username %></td>
         <td><%= game.active ? link_to('join', game_path(game)) : Team.find(game.winner).color%></td>
-        <td><%= link_to('edit', edit_game_path(game)) if game.creator == current_user %></td>
+        <td><%= link_to('edit', edit_game_path(game)) if game.creator == current_user && game.active %></td>
       </tr>
     <% end %>
   </tbody>

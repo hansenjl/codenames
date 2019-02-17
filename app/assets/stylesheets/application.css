@@ -39,10 +39,10 @@
             max-height: 0px;
             box-sizing: border-box;
         }
-        .cell-inrevealed {
+        .cell-unrevealed {
             border: 2px dotted black;
         }
-        .cell-inrevealed:hover {
+        .cell-unrevealed:hover {
             border: 2px solid black;
             cursor: pointer;
         }
