@@ -1,6 +1,7 @@
 class Team < ApplicationRecord
   belongs_to :game
   has_many :users
+  belongs_to :leader,  class_name: "User"
 
   def self.red
     where(color: "red").last
