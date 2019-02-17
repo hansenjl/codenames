@@ -48,18 +48,5 @@ class Team < ApplicationRecord
     end
   end
 
-  #blue word: ["hat",
- # "drill",
- # "night",
- # "novel",
- # "press",
- # "horse",
- # "grape",
- # "ambulence",
- # "rope"]
-
- #red words: ["kid", "giant", "case", "skateboard", "plane", "mug", "bat", "tennis"]
-#bystander: ["window", "pager", "clock", "cricket", "hammer", "cop", "fish"]
- #death word:"baby"
 
 end

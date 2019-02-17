@@ -47,7 +47,10 @@ class Game < ApplicationRecord
     t2 = self.teams[1]
     t1_slots = t1.size - t1.users.length
     t2_slots = t2.size - t2.users.length
-    if  t1_slots > t2_slots
+    if  t1.users.length == 0
+      t1.users << user
+      t1.save
+    elsif t1_slots > t2_slots
       t1.users << user
       t1.save
     else
