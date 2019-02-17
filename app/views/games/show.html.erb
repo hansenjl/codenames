@@ -1,7 +1,7 @@
 <h1><%= @game.name %> </h1>
 <p id="game-id" class="hidden"><%=@game.id%></p>
 
-<h2> <%= join_leave_link %> </h2>
+<h2> <%= join_leave_link %> | <%= start_game_link %> </h2>
 
 <% if %>
   <%= render "game" %>
