@@ -21,7 +21,7 @@ function guess_word(e){
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
     },
     success: function(data){
-      data
+      debugger
       space.style.backgroundColor = data.color
       space.classList.remove("cell-unrevealed")
       space.classList.add("cell-revealed")
@@ -46,6 +46,8 @@ function guess_word(e){
 
 
 function attachListeners(){
+
+  //only attach if games aren't done
   $("td.cell-unrevealed").click(function(){
     guess_word(this)
   })

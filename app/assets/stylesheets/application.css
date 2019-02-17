@@ -51,15 +51,15 @@
             cursor: auto;
         }
         .cell-red {
-            background: #FFCCCC;
+            background: red;
         }
         .cell-blue {
-            background: #99CCFF;
+            background: blue;
         }
-        .cell-neutral {
-            background: #eeeeee;
+        .cell-bystander{
+            background: beige;
         }
-        .cell-end {
+        .cell-death {
             background: black;
             color: white;
         }

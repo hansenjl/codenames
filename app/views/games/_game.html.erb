@@ -5,27 +5,27 @@
       <tbody>
         <tr>
           <% @game.board.spaces[0..4].each do |space|%>
-            <td class="cell cell-unrevealed"><%= space.word.text  %></td>
+            <%= render 'cell', space: space%>
           <% end %>
         </tr>
         <tr>
           <% @game.board.spaces[5..9].each do |space|%>
-            <td class="cell cell-unrevealed"><%= space.word.text  %></td>
+            <%= render 'cell', space: space%>
           <% end %>
         </tr>
         <tr>
           <% @game.board.spaces[10..14].each do |space|%>
-            <td class="cell cell-unrevealed"><%= space.word.text  %></td>
+            <%= render 'cell', space: space%>
           <% end %>
         </tr>
         <tr>
           <% @game.board.spaces[15..19].each do |space|%>
-            <td class="cell cell-unrevealed"><%= space.word.text %></td>
+            <%= render 'cell', space: space%>
           <% end %>
         </tr>
         <tr>
           <% @game.board.spaces[20..24].each do |space|%>
-            <td class="cell cell-unrevealed"><%= space.word.text %></td>
+            <%= render 'cell', space: space%>
           <% end %>
         </tr>
       </tbody>
