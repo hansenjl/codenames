@@ -19,9 +19,9 @@ class Game < ApplicationRecord
     self.active = true
     self.starter = ["red","blue"].sample
     board = Board.generate(self)
-    self.creator.team = self.teams.build(color: "red", size: team1, cards_left: board.spaces.assignment("red").count, cards_guessed: 0)
+    self.creator.team = self.teams.create(color: "red", size: team1, cards_left: board.spaces.assignment("red").count, cards_guessed: 0)
     self.creator.save
-    self.teams.build(color: "blue", size: team2, cards_left: board.spaces.assignment("blue").count , cards_guessed: 0).save
+    self.teams.create(color: "blue", size: team2, cards_left: board.spaces.assignment("blue").count , cards_guessed: 0).save
     self.save
     self
   end
