@@ -11,7 +11,7 @@
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2'></script>
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <header>
       <% if logged_in?%>
         <%= link_to 'All Games', games_path %> |
