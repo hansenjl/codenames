@@ -1,5 +1,5 @@
  <% if space.revealed %>
-  <td class="cell cell-revealed cell-<%=space.assignment%>"><%= space.word.text %></td>
+  <td id="word-<%=space.word.id%>" class="cell cell-revealed cell-<%=space.assignment%>"><%= space.word.text %></td>
  <% else %>
-    <td class="cell cell-unrevealed"><%= space.word.text %></td>
+    <td id="word-<%=space.word.id%>"  class="cell cell-unrevealed"><%= space.word.text %></td>
  <% end %>
